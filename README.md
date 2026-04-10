@@ -23,17 +23,11 @@
 
 </div>
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### ⚙️ Core
-
-- TPA Helper
-
-</td>
-</tr>
-</table>
+### TPA Helper
+ * **Automated Filtering**: Handles requests based on configurable blacklist, whitelist, and friend lists.
+ * **Response Delays**: Adjustable tick-based delay to prevent instant, automated-looking responses.
+ * **Custom Commands**: Configurable accept and deny commands for compatibility with different server plugins.
+ * **Request Queueing**: Manages multiple concurrent requests with independent timers.
 
 ---
 
