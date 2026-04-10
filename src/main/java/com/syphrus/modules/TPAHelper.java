@@ -48,7 +48,7 @@ public class TPAHelper extends Module {
         .name("blacklist")
         .description("Players in this list will always be denied.")
         .defaultValue(List.of())
-        .build()); // Removed visibility constraint so it's always available
+        .build());
 
     // --- Customization ---
     private final Setting<Integer> delay = sgCustomization.add(new IntSetting.Builder()
@@ -92,19 +92,19 @@ public class TPAHelper extends Module {
         if (matcher.find()) {
             String sender = matcher.group(1);
 
-            // 1. Blacklist Check (Highest Priority - Always Deny)
+            // 1. Blacklist Check
             if (isPlayerInList(sender, blacklist.get())) {
                 queueRequest(sender, false, "Blacklisted");
                 return;
             }
 
-            // 2. Whitelist Check (Second Priority - Always Accept)
+            // 2. Whitelist Check
             if (isPlayerInList(sender, whitelist.get())) {
                 queueRequest(sender, true, "Whitelisted");
                 return;
             }
 
-            // 3. Whitelist Only Mode (If active, ignore anyone not handled above)
+            // 3. Whitelist Only Mode
             if (whitelistOnly.get()) {
                 return;
             }
@@ -113,7 +113,7 @@ public class TPAHelper extends Module {
             boolean isFriend = Friends.get().get(sender) != null;
             if (friendsOnly.get() && !isFriend) return;
 
-            // 5. Global Mode (Default behavior for everyone else)
+            // 5. Global Mode
             queueRequest(sender, mode.get() == Mode.Accept, isFriend ? "Friend" : "Global Mode");
         }
     }
