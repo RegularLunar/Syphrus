@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://sharex.rocks/images/4Hycy2XfJT.png" alt="Syphrus" width="120" />
+<img src="[https://sharex.rocks/images/4Hycy2XfJT.png](https://r2.fakecrime.bio/uploads/72dec38a-c97b-483d-8bfb-3bd67b197640.png)" alt="Syphrus" width="120" />
 <br/>
 
 # Syphrus
