@@ -1,27 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "addon-template",
+  "id": "syphrus",
   "version": "${version}",
-  "name": "Addon Template",
-  "description": "An addon template for Meteor Client addons.",
+  "name": "Syphrus",
+  "description": "An addon that aims to improve meteor!",
   "authors": [
-    "seasnail"
+    "RegularLunar"
   ],
   "contact": {
-    "sources": "https://github.com/MeteorDevelopment/meteor-addon-template"
+    "sources": "https://github.com/RegularLunar/Syphrus"
   },
-  "icon": "assets/template/icon.png",
+  "icon": "assets/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "com.example.addon.AddonTemplate"
+      "com.syphrus.Addon"
     ]
   },
-  "mixins": [
-    "addon-template.mixins.json"
-  ],
   "custom": {
-    "meteor-client:color": "225,25,25",
+    "meteor-client:color": "255,170,0",
     "modmenu": {
       "parent": {
         "id": "meteor-client"
@@ -29,8 +26,8 @@
     }
   },
   "depends": {
-    "java": ">=21",
-    "minecraft": ["${mc_version}"],
+    "java": ">=17",
+    "minecraft": [">=1.20.1"],
     "meteor-client": "*"
   }
 }
