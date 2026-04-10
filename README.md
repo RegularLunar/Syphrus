@@ -32,13 +32,6 @@
 - TPA Helper
 
 </td>
-<td width="50%" valign="top">
-
-### 🎨 UI & Experience
-
-_None_
-
-</td>
 </tr>
 </table>
 
