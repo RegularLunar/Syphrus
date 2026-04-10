@@ -35,6 +35,7 @@
 
 <img src="https://r2.fakecrime.bio/uploads/fea73296-cf81-41bb-b145-4527d763df41.png" alt="Syphrus" />
 <br/>
+</div>
 
 ---
 
