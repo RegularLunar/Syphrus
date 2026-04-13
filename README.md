@@ -10,7 +10,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/RegularLunar/Syphrus?style=for-the-badge&color=7c3aed&label=Latest)](https://github.com/RegularLunar/Syphrus/releases)
 [![Downloads](https://img.shields.io/github/downloads/RegularLunar/Syphrus/total?style=for-the-badge&color=0ea5e9&label=Downloads)](https://github.com/RegularLunar/Syphrus/releases)
 [![Stars](https://img.shields.io/github/stars/RegularLunar/Syphrus?style=for-the-badge&color=f59e0b)](https://github.com/RegularLunar/Syphrus)
-[![License](https://img.shields.io/github/license/RegularLunar/Syphrus?style=for-the-badge&color=10b981)](LICENSE)
+[![License](https://img.shields.io/badge/License-ARR-10b981?style=for-the-badge)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/RegularLunar/Syphrus?style=for-the-badge&color=6366f1)](https://github.com/RegularLunar/Syphrus/commits)
 
 ---
