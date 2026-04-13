@@ -1,21 +1,17 @@
 package com.syphrus;
 
-import com.syphrus.modules.TPAHelper;
+import com.syphrus.modules.tpahelper;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class Addon extends MeteorAddon {
-    public static final Logger LOG = LoggerFactory.getLogger(Addon.class);
+public class addon extends MeteorAddon {
     public static final Category CATEGORY = new Category("Syphrus");
 
     @Override
     public void onInitialize() {
-        LOG.info("Initializing Syphrus...");
 
-        Modules.get().add(new TPAHelper());
+        Modules.get().add(new tpahelper());
     }
 
     @Override

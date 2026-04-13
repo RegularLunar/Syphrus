@@ -1,6 +1,6 @@
 package com.syphrus.modules;
 
-import com.syphrus.Addon;
+import com.syphrus.addon;
 import meteordevelopment.meteorclient.events.game.ReceiveMessageEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
@@ -8,14 +8,12 @@ import meteordevelopment.meteorclient.systems.friends.Friends;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import meteordevelopment.orbit.EventHandler;
-import net.minecraft.util.Formatting;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TPAHelper extends Module {
+public class tpahelper extends Module {
     public enum Mode { Accept, Deny }
 
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
@@ -48,20 +46,19 @@ public class TPAHelper extends Module {
         .name("blacklist")
         .description("Players in this list will always be denied.")
         .defaultValue(List.of())
-        .build()); // Removed visibility constraint so it's always available
+        .build());
 
-    // --- Customization ---
     private final Setting<Integer> delay = sgCustomization.add(new IntSetting.Builder()
         .name("delay-ticks")
         .description("Ticks to wait before responding (20 ticks = 1 sec).")
-        .defaultValue(20)
+        .defaultValue(0)
         .min(0)
-        .sliderMax(100)
+        .sliderMax(200)
         .build());
 
     private final Setting<Boolean> ignoreTpaHere = sgCustomization.add(new BoolSetting.Builder()
         .name("ignore-tp-here")
-        .defaultValue(true)
+        .defaultValue(false)
         .build());
 
     private final Setting<String> acceptCmd = sgCustomization.add(new StringSetting.Builder()
@@ -77,8 +74,8 @@ public class TPAHelper extends Module {
     private final Pattern tpaPattern = Pattern.compile("([A-Za-z0-9_]{3,16})\\s+(has requested|wants|requested)");
     private final List<PendingRequest> queue = new ArrayList<>();
 
-    public TPAHelper() {
-        super(Addon.CATEGORY, "tpa-helper", "The ultimate TPA management tool.");
+    public tpahelper() {
+        super(addon.CATEGORY, "tpa-helper", "The ultimate TPA management tool.");
     }
 
     @EventHandler
@@ -92,28 +89,23 @@ public class TPAHelper extends Module {
         if (matcher.find()) {
             String sender = matcher.group(1);
 
-            // 1. Blacklist Check (Highest Priority - Always Deny)
             if (isPlayerInList(sender, blacklist.get())) {
                 queueRequest(sender, false, "Blacklisted");
                 return;
             }
 
-            // 2. Whitelist Check (Second Priority - Always Accept)
             if (isPlayerInList(sender, whitelist.get())) {
                 queueRequest(sender, true, "Whitelisted");
                 return;
             }
 
-            // 3. Whitelist Only Mode (If active, ignore anyone not handled above)
             if (whitelistOnly.get()) {
                 return;
             }
 
-            // 4. Friends Check
             boolean isFriend = Friends.get().get(sender) != null;
             if (friendsOnly.get() && !isFriend) return;
 
-            // 5. Global Mode (Default behavior for everyone else)
             queueRequest(sender, mode.get() == Mode.Accept, isFriend ? "Friend" : "Global Mode");
         }
     }
